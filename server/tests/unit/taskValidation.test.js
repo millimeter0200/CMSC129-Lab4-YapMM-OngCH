@@ -17,3 +17,11 @@ test("should return true for valid task title", () => {
 
   expect(validateTask(task)).toBe(true);
 });
+
+test("should return false for whitespace-only title", () => {
+  const task = {
+    title: "     "
+  };
+
+  expect(validateTask(task)).toBe(false);
+});
