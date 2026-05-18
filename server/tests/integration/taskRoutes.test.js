@@ -20,5 +20,5 @@ test("should return 400 for invalid task title", async () => {
       title: ""
     });
 
-  expect(response.statusCode).toBe(201);
+  expect(response.statusCode).toBe(400);
 });
