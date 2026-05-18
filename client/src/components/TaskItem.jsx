@@ -1,6 +1,6 @@
 import "./TaskItem.css";
 
-function TaskItem({ title }) {
+function TaskItem({ title, onDelete }) {
   return (
     <div className="task-item">
 
@@ -8,7 +8,10 @@ function TaskItem({ title }) {
         {title}
       </span>
 
-      <button className="delete-btn">
+      <button
+        className="delete-btn"
+        onClick={onDelete}
+      >
         Delete
       </button>
 

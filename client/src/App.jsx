@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-
 import "./App.css";
 
 import TaskForm from "./components/TaskForm";
@@ -8,21 +6,41 @@ import TaskList from "./components/TaskList";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState("");
+
+  const fetchTasks = async () => {
+    const response = await fetch("http://localhost:5001/tasks");
+    const data = await response.json();
+    setTasks(data);
+  };
 
   useEffect(() => {
     fetchTasks();
   }, []);
 
-  const fetchTasks = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:5001/tasks"
-      );
+  const handleAddTask = async () => {
+    if (!newTask.trim()) return;
 
-      setTasks(response.data);
-    } catch (error) {
-      console.error(error);
-    }
+    await fetch("http://localhost:5001/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: newTask,
+      }),
+    });
+
+    setNewTask("");
+    fetchTasks();
+  };
+
+  const handleDeleteTask = async (index) => {
+    await fetch(`http://localhost:5001/tasks/${index}`, {
+      method: "DELETE",
+    });
+
+    fetchTasks();
   };
 
   return (
@@ -36,9 +54,13 @@ function App() {
           Organize your tasks with clarity and focus.
         </p>
 
-        <TaskForm />
+        <TaskForm
+          newTask={newTask}
+          setNewTask={setNewTask}
+          handleAddTask={handleAddTask}
+        />
 
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} handleDeleteTask={handleDeleteTask} />
       </div>
     </div>
   );
