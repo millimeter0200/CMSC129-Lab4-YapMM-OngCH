@@ -1,5 +1,9 @@
 function validateTask(task) {
-  return !!task.title && task.title.trim() !== "";
+  if (!task.title) {
+    return false;
+  }
+
+  return task.title.trim() !== "";
 }
 
 module.exports = validateTask;
