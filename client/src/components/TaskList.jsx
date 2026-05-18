@@ -1,29 +1,17 @@
 import "./TaskList.css";
 import TaskItem from "./TaskItem";
 
-function TaskList() {
-
-  const sampleTasks = [
-    "Finish CMSC 129 Lab",
-    "Review TDD cycle",
-    "Push frontend branch",
-    "Prepare defense answers",
-  ];
-
+function TaskList({ tasks }) {
   return (
     <div className="task-list">
-
-      {sampleTasks.map((task, index) => (
+      {tasks.map((task, index) => (
         <TaskItem
           key={index}
-          title={task}
+          title={task.title}
         />
       ))}
-
     </div>
   );
 }
 
 export default TaskList;
-
-
