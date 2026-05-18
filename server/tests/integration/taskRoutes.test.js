@@ -12,3 +12,13 @@ describe("Task Routes", () => {
     expect(response.statusCode).toBe(201);
   });
 });
+
+test("should return 400 for invalid task title", async () => {
+  const response = await request(app)
+    .post("/tasks")
+    .send({
+      title: ""
+    });
+
+  expect(response.statusCode).toBe(201);
+});
