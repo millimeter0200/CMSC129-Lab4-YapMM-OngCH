@@ -9,3 +9,11 @@ describe("Task Validation", () => {
     expect(validateTask(task)).toBe(false);
   });
 });
+
+test("should return true for valid task title", () => {
+  const task = {
+    title: "Finish CMSC129 Lab"
+  };
+
+  expect(validateTask(task)).toBe(true);
+});
