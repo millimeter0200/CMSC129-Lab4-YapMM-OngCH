@@ -6,6 +6,6 @@ describe("Task Validation", () => {
       title: ""
     };
 
-    expect(validateTask(task)).toBe(true);
+    expect(validateTask(task)).toBe(false);
   });
 });
