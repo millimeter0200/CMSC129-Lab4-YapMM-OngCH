@@ -22,3 +22,9 @@ test("should return 400 for invalid task title", async () => {
 
   expect(response.statusCode).toBe(400);
 });
+
+test("should return all tasks", async () => {
+  const response = await request(app).get("/tasks");
+
+  expect(response.statusCode).toBe(200);
+});
