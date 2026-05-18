@@ -4,6 +4,10 @@ const router = express.Router();
 const tasks = require("../data/tasks");
 const validateTask = require("../utils/taskValidation");
 
+router.get("/", (req, res) => {
+  return res.status(200).json(tasks);
+});
+
 router.post("/", (req, res) => {
   const { title } = req.body;
 
