@@ -28,3 +28,15 @@ test("should return all tasks", async () => {
 
   expect(response.statusCode).toBe(200);
 });
+
+test("should delete a task", async () => {
+  await request(app)
+    .post("/tasks")
+    .send({
+      title: "Task to delete"
+    });
+
+  const response = await request(app).delete("/tasks/0");
+
+  expect(response.statusCode).toBe(200);
+});
