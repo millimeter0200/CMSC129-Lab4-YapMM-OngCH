@@ -25,3 +25,13 @@ router.post("/", (req, res) => {
 });
 
 module.exports = router;
+
+router.delete("/:id", (req, res) => {
+  const taskIndex = parseInt(req.params.id);
+
+  tasks.splice(taskIndex, 1);
+
+  return res.status(200).json({
+    message: "Task deleted successfully",
+  });
+});
