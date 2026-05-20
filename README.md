@@ -1,52 +1,129 @@
-# To-Do TDD App
+# Minimal Task Tracker
 
-## App Description
-A simple full-stack To-Do application built using Test-Driven Development (TDD).
+## 1. App Description
 
-## User Stories
-1. As a user, I want to add tasks so that I can track things I need to do.
-2. As a user, I want to mark tasks as completed so that I know which tasks are done.
-3. As a user, I want to delete tasks so that I can remove unnecessary tasks.
+Minimal Task Tracker is a simple full-stack web application that allows users to manage their daily tasks efficiently. Users can add tasks, view all existing tasks, and delete completed tasks through a clean and minimal interface. The project was developed using React for the frontend and Express for the backend while following the Test-Driven Development (TDD) approach.
 
-## Tech Stack
+---
+
+## 2. User Stories
+
+1. As a student, I want to add tasks, so that I can keep track of requirements and deadlines.
+
+2. As a user, I want to view all my tasks, so that I can organize my responsibilities clearly.
+
+3. As a user, I want to delete completed tasks, so that I can keep my task list updated and uncluttered.
+
+---
+
+## 3. Tech Stack
 
 ### Frontend
-- React + Vite
+- React
+- Vite
+- CSS
 
 ### Backend
-- Node.js + Express
+- Node.js
+- Express
 
-### Testing
+### Testing Tools
 - Jest
 - Supertest
-- Playwright
 
-### CI/CD
-- GitHub Actions
+### Data Storage Approach
+- In-memory JavaScript array storage
 
-## Testing Strategy
+---
 
-### Unit Tests
-Test individual business logic functions.
+## 4. Testing Strategy
 
-### Integration Tests
-Test API request/response flow.
+### Unit Testing
+Unit tests were used to validate task input and business logic. These tests ensure that invalid task titles are rejected and valid tasks are accepted correctly.
 
-### System Tests
-Test complete user interactions using Playwright.
+### Integration Testing
+Integration tests were implemented for API routes to verify that endpoints such as task creation, retrieval, and deletion work correctly with the backend application.
 
-## Setup Instructions
+### System Testing
+System testing was performed manually by running both frontend and backend servers simultaneously and verifying that users can add, display, and delete tasks through the user interface.
 
-### Frontend
+---
+
+## 5. Setup Instructions
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/millimeter0200/CMSC129-Lab4-YapMM-OngCH.git
+cd CMSC129-Lab4-YapMM-OngCH
+```
+
+---
+
+### Backend Setup
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+Backend runs on:
+
+```bash
+http://localhost:5000
+```
+
+---
+
+### Frontend Setup
+
+Open another terminal:
+
 ```bash
 cd client
 npm install
 npm run dev
 ```
 
-### Backend
+Frontend runs on:
+
 ```bash
-cd server
-npm install
-npm run dev
+http://localhost:5173
 ```
+
+---
+
+### Running Tests
+
+Inside the server folder:
+
+```bash
+npm test
+```
+
+---
+
+## 6. Test Results
+
+### Unit Test Results
+
+![Unit Tests](images/unit-tests.png)
+
+---
+
+### Integration Test Results
+
+![Integration Tests](images/integration-tests.png)
+
+---
+
+### System Test Results
+
+![Working Application](images/system-test.png)
+
+---
+
+### GitHub Actions CI Result
+
+![GitHub Actions](images/github-actions.png)
